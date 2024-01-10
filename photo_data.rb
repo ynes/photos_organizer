@@ -1,4 +1,4 @@
-# Class to store collected photo data
+# Class to store collected photo data used in Organizer class.
 class PhotoData
     attr_reader :epoch, :ext, :original_name
 
