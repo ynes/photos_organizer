@@ -1,7 +1,7 @@
 require 'time'
 require_relative 'photo_data'
 
-# Class to reorganize and rename photos. The run method receives a string of original photos names
+# Class to reorganize and rename photos. The run method receives a string of original photo names
 # and returns a string with new names in the same input order according to the city and the time
 # they were taken.
 # The approach is to collect and group all photos from the same city, then sort them according to the
@@ -9,7 +9,7 @@ require_relative 'photo_data'
 
 class Organizer
     # Inputs:
-    #   photo_names: String with original photos names with the format:
+    #   photo_names: String with original photo names with the format:
     #   <\<photoname>>.<\<extension>>, <<city_name>>, yyyy-mm-dd, hh:mm:ss"
     # Output:
     #  String with new names of photos in the same input order.
@@ -62,7 +62,7 @@ class Organizer
                 sorted_photos = photos.sort_by {|p| p.epoch}
                 digits = sorted_photos.size.digits.size
                 sorted_photos.each_with_index do |photo, i|
-                    # store the new photos names to a hash with the original name as key.
+                    # store the new photo names to a hash with the original name as key.
                     @photos_map[photo.original_name] = "#{city}#{(i + 1).to_s.rjust(digits, '0')}.#{photo.ext}"
                 end
             rescue => e
@@ -71,7 +71,7 @@ class Organizer
         end
     end
 
-    # order the new photos names in the same order or the input string
+    # order the new photo names in the same order or the input string
     def prepare_output
         result = ""
         @original_names.each do |original_name|
